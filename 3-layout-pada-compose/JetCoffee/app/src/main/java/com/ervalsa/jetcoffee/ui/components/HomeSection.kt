@@ -3,7 +3,7 @@ package com.ervalsa.jetcoffee.ui.components
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.ervalsa.jetcoffee.SectionText
+import com.ervalsa.jetcoffee.ui.components.SectionText
 
 @Composable
 fun HomeSection(
