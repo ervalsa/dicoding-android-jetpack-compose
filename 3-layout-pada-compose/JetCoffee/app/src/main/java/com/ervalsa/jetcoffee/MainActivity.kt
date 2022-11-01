@@ -27,6 +27,7 @@ import com.ervalsa.jetcoffee.model.dummyBestSellerMenu
 import com.ervalsa.jetcoffee.model.dummyCategory
 import com.ervalsa.jetcoffee.model.dummyMenu
 import com.ervalsa.jetcoffee.ui.components.CategoryItem
+import com.ervalsa.jetcoffee.ui.components.HomeSection
 import com.ervalsa.jetcoffee.ui.components.MenuItem
 import com.ervalsa.jetcoffee.ui.components.SearchBar
 import com.ervalsa.jetcoffee.ui.theme.JetCoffeeTheme
@@ -44,18 +45,24 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun JetCoffeeApp(modifier: Modifier = Modifier) {
+fun JetCoffeeApp() {
     Column(
-        modifier = modifier
+        modifier = Modifier
             .verticalScroll(rememberScrollState())
     ) {
         Banner()
-        SectionText(stringResource(R.string.section_category))
-        CategoryRow()
-        SectionText(stringResource(R.string.section_favorite_menu))
-        MenuRow(dummyMenu)
-        SectionText(stringResource(R.string.section_best_seller_menu))
-        MenuRow(dummyBestSellerMenu)
+        HomeSection(
+            title = stringResource(R.string.section_category),
+            content = { CategoryRow() }
+        )
+        HomeSection(
+            title = stringResource(R.string.section_best_seller_menu),
+            content = { MenuRow(dummyMenu) }
+        )
+        HomeSection(
+            title = stringResource(R.string.section_best_seller_menu),
+            content = { MenuRow(dummyBestSellerMenu) }
+        )
     }
 }
 
